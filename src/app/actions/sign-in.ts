@@ -15,12 +15,12 @@ export const signInWithGitHub = async () => {
 }
 
 export const signInWithUsername = async (formData: FormData) => {
-    const username = formData.get('username') as string;
-    if (username) {
-        // For demonstration purposes, we'll use credentials provider
-        await signIn("credentials", { 
-            username,
-            redirectTo: "/profile" 
+    const data_login = Object.fromEntries(formData);
+
+    if (data_login.username && data_login.password) {
+        await signIn("credentials", {
+            ...data_login,
+            redirectTo: "/profile"
         })
     }
 }

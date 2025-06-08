@@ -65,8 +65,10 @@ export async function GET(request: NextRequest) {
 
     //return NextResponse.json(profileData.data);
     const res = await signIn('credentials', {
-        profile: JSON.stringify(profileData.data),
+        'cred-way': 'health-id',
+        'profile': JSON.stringify(profileData.data),
+        redirectTo: "/profile"
     });
 
-    redirect('/profile');
+    //redirect('/profile');
 }

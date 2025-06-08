@@ -9,7 +9,7 @@ export default async function ProfilePage() {
     const session = await auth()
     const rawProfile = (session?.user as any)?.profile;
     const profileData = rawProfile ? JSON.parse(rawProfile) : session?.user;
-    console.log("Profile session:", session);
+    console.log("session:", session);
 
     return (
         <div className='flex flex-col items-center py-15'>

@@ -14,6 +14,20 @@ const authOptions = {
     CredentialsProvider({
       async authorize(credentials) {
         console.log("credentials = ", credentials);
+        if (credentials['cred-way'] == 'user-pass') {
+          const user = await prisma.user.findUnique({
+            where: {
+              username: credentials?.username as string
+            }
+          })
+          if (!user) {
+            return {}; // This will cause authentication to fail and redirect to sign-in page
+          }
+          return {
+            name: user.username,
+            profile: JSON.stringify(user)
+          }
+        }
         return {
           name: credentials.username as string || 'health-id',
           profile: credentials.profile!,

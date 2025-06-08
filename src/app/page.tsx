@@ -57,6 +57,18 @@ export default async function Home() {
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                />
+                <input
+                  type="hidden"
+                  name="cred-way"
+                  value="user-pass"
+                />
                 <button
                   type="submit"
                   className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3.5 px-6 rounded-lg text-lg w-full"
