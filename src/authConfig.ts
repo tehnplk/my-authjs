@@ -5,13 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import LineProvider from "next-auth/providers/line";
 
 
-
-export const {
-  handlers: { GET, POST },
-  auth,
-  signIn,
-  signOut,
-} = NextAuth({
+const authOptions = {
   session: {
     strategy: 'jwt',
     maxAge: 60 * 60 * 25, // 25 hours
@@ -62,22 +56,23 @@ export const {
   ],
   callbacks: {
     async jwt({ token, user }) {
-
       if (user) {
         token.profile = user.profile;
       }
-
       return token;
     },
     async session({ session, token }) {
-
       if (token && session.user) {
         session.user.profile = token.profile; // Add user profile to the session
       }
-
       return session;
     },
   },
+}
 
-
-});
+export const {
+  handlers,
+  auth,
+  signIn,
+  signOut,
+} = NextAuth(authOptions);
