@@ -14,6 +14,16 @@ export const signInWithGitHub = async () => {
     await signIn("github", { redirectTo: "/profile" })
 }
 
+export const signInWithUsername = async (formData: FormData) => {
+    const username = formData.get('username') as string;
+    if (username) {
+        // For demonstration purposes, we'll use credentials provider
+        await signIn("credentials", { 
+            username,
+            redirectTo: "/profile" 
+        })
+    }
+}
 
 export const signInWithHealthId = async () => {
     const clientId = process.env.HEALTH_CLIENT_ID;

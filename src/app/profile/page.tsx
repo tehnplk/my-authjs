@@ -18,9 +18,8 @@ export default async function ProfilePage() {
             </form>
 
             <div className="w-full max-w-2xl px-4">
-                <h1 className="text-3xl font-bold mb-6 text-center">Profile</h1>
                 <div className="bg-gray-50 shadow-md rounded-lg p-6 mt-8 w-[80%] mx-auto">
-                    <h2 className="text-xl font-semibold mb-3">Profile Data (JSON.stringify)</h2>
+                    <h2 className="text-xl font-semibold mb-3">Profile (JSON.stringify)</h2>
                     <pre className="bg-gray-100 p-4 rounded-md overflow-auto text-sm whitespace-pre-wrap break-all">
                         {JSON.stringify(profileData, null, 2)}
                     </pre>

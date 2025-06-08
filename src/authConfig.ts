@@ -21,8 +21,8 @@ export const {
       async authorize(credentials) {
         console.log("credentials = ", credentials);
         return {
-          name: 'health-id',
-          profile: credentials.profile
+          name: credentials.username as string || 'health-id',
+          profile: credentials.profile!,
         };
       },
     }),
