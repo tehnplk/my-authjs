@@ -2,14 +2,13 @@ import { auth } from '@/authConfig'
 import { redirect } from 'next/navigation'
 import { signInWithGoogle, signInWithLine, signInWithGitHub, signInWithHealthId } from './actions/sign-in'
 
-import HealthButton from './components/HealthButton'
 
 export default async function Home() {
   const session = await auth()
 
-  // If user is already logged in, redirect to dashboard
+  // If user is already logged in, redirect to profile
   if (session) {
-    redirect('/dashboard')
+    redirect('/profile')
   }
 
   return (

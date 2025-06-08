@@ -68,5 +68,5 @@ export async function GET(request: NextRequest) {
         profile: JSON.stringify(profileData.data),
     });
 
-    redirect('/dashboard');
+    redirect('/profile');
 }

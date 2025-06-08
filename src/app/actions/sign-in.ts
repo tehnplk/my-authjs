@@ -3,15 +3,15 @@ import { signIn } from '@/authConfig'
 import { redirect } from 'next/navigation';
 
 export const signInWithGoogle = async () => {
-    await signIn("google", { redirectTo: "/dashboard" })
+    await signIn("google", { redirectTo: "/profile" })
 }
 
 export const signInWithLine = async () => {
-    await signIn("line", { redirectTo: "/dashboard" })
+    await signIn("line", { redirectTo: "/profile" })
 }
 
 export const signInWithGitHub = async () => {
-    await signIn("github", { redirectTo: "/dashboard" })
+    await signIn("github", { redirectTo: "/profile" })
 }
 
 
